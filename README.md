@@ -1,6 +1,5 @@
 # Ruby on Rails SMB Template by Tony and Matt
 
-
 Customer visits landing page /floor coming from google
 landing page: (static page)
 	pictures, description of "floor services"
@@ -26,4 +25,3 @@ Contact page
 
 Sign in page
 	has fields: email, password(generated)
-
