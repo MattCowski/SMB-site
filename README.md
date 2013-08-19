@@ -1,4 +1,4 @@
-# Ruby on Rails Tutorial: sample application
+# Ruby on Rails SMB Template by Tony and Matt
 
 This is the sample application for
 [*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://railstutorial.org/)
