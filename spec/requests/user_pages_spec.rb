@@ -5,14 +5,21 @@ describe "User pages" do
   subject { page }
 
   describe "index" do
+
+    it { should have_title('Continue your sign up...') }
+    it { should have_content('Upload pictures') }
+    it { should have_content('Calculate your quote') }
+    it { should have_content('SF price calc') }
+  end
+
+  describe "admin page" do
     let(:user) { FactoryGirl.create(:user) }
-    before(:each) do
-      sign_in user
+
+    let(:admin) { FactoryGirl.create(:admin) }
+    before do
+      sign_in admin
       visit users_path
     end
-
-    it { should have_title('All users') }
-    it { should have_content('All users') }
 
     describe "pagination" do
 
@@ -30,15 +37,6 @@ describe "User pages" do
 
     describe "delete links" do
 
-      it { should_not have_link('delete') }
-
-      describe "as an admin user" do
-        let(:admin) { FactoryGirl.create(:admin) }
-        before do
-          sign_in admin
-          visit users_path
-        end
-
         it { should have_link('delete', href: user_path(User.first)) }
         it "should be able to delete another user" do
           expect do
@@ -46,7 +44,6 @@ describe "User pages" do
           end.to change(User, :count).by(-1)
         end
         it { should_not have_link('delete', href: user_path(admin)) }
-      end
     end
   end
 
